@@ -159,6 +159,142 @@
     const nf=n=>Number(n||0).toLocaleString('en-US');
     const vibe=()=>{try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}};
     const CH=['بدون بصل','بدون طماطم','بدون باذنجان','بدون مخلل','مع مخلل','مخلل على جنب','ثومية على جنب','بدون ثومية','حار','بدون حار','إضافة ثومية','إضافة طحينة'];
+    /* ═══════════════════════════════════════════════════════════════
+   ذكاء الملاحظات — استخراج المكونات من وصف الوجبة تلقائياً
+   ═══════════════════════════════════════════════════════════════ */
+const BASE_WORDS = [
+  'لحم','دجاج','فلافل','شاورما','برغر','سمك',
+  'أرز','رز',
+  'صمون','خبز','عيش','عراقي','فرنسي','حجري','سوري','صاج','محمرة',
+  'كيلو','كيلوغرام','غرام','غ','نص','قطع','قطعة','قرص','اقراص','أقراص','عدد',
+  'شرائح','شخص','أشخاص','طازج','ساخن','بارد','صغير','وسط','كبير','دبل','عائلي',
+  'ماء','مياه'
+];
+
+const KNOWN_SAUCES = ['طحينة','طحينية','طرطور','ثوم','ثومية','جبن','جبنة','شطة','شيدر','باربكيو','كوكتيل','ماسترد','هني','خاص'];
+
+function _normWord(w){
+  let nw = w;
+  if(nw.startsWith('بال') && nw.length > 4) nw = nw.slice(3);
+  else if(nw.startsWith('لل') && nw.length > 4) nw = nw.slice(2);
+  else if(nw.startsWith('ال') && nw.length > 3) nw = nw.slice(2);
+  else if(nw.startsWith('ب') && nw.length > 2) nw = nw.slice(1);
+  return nw;
+}
+
+function _containsBase(s){
+  const words = s.split(/\s+/);
+  for(const w of words){
+    if(BASE_WORDS.includes(_normWord(w))) return true;
+  }
+  return false;
+}
+
+function _shouldSkip(s){
+  if(/^\s*\(\d+\)/.test(s)) return true;
+  if(/^\d/.test(s)) return true;
+  if(/^عدد\s*\d+/.test(s)) return true;
+  if(/^(نص\s+)?كيلو/.test(s)) return true;
+  if(/غرام/.test(s)) return true;
+  return false;
+}
+
+function _cleanPart(s){
+  return s
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\d+/g, '')
+    .replace(/^عدد\s*/i, '')
+    .replace(/^و\s*/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function _normalizeDisplay(d){
+  return d
+    .replace(/^خضراوات$/, 'خضروات')
+    .replace(/^خضار$/, 'خضروات')
+    .replace(/^(طرطور|طحينية|طحينه|الطحينة)$/, 'طحينة')
+    .replace(/^ثوميه$/, 'ثوم');
+}
+
+function _displayName(s){
+  let d = s
+    .replace(/^ال(?=[^ ]{2})/, '')
+    .trim();
+  const stripped = d.replace(/^(صوص|كريم)\s+/, '');
+  if(stripped !== d){
+    const strippedClean = stripped.replace(/^ال(?=[^ ]{2})/, '').trim();
+    if(strippedClean.length >= 3 && KNOWN_SAUCES.some(k=>strippedClean.includes(k))){
+      d = strippedClean;
+    }
+  }
+  return _normalizeDisplay(d);
+}
+
+
+
+
+
+
+function getChipsForItem(itemName){
+  const d = desc(itemName);
+  if(!d || !d.trim()) return [];
+
+  /* ═══ تحويل " و" (واو العطف) إلى فاصل | ═══ */
+  const marked = d.replace(/([\u0621-\u064A])\s+و\s*/g, '$1|');
+  const parts = marked.split(/[\-+،,\/|]/).map(s=>s.trim()).filter(Boolean);
+
+  const chips = [];
+  const seen = new Set();
+  const sauceItems = [];
+
+  for(const part of parts){
+    if(_shouldSkip(part)) continue;
+    const clean = _cleanPart(part);
+    if(!clean || clean.length < 2) continue;
+    if(_containsBase(clean)) continue;
+
+    const display = _displayName(clean);
+    if(!display || display.length < 2) continue;
+    if(BASE_WORDS.includes(display)) continue;
+
+    /* ═══ استثناء الحار من المكونات — سيُضاف كخيار منفصل ═══ */
+    if(display === 'حار' || display === 'حارة' || display === 'شطة' || display === 'حرّاق') continue;
+
+    if(seen.has(display)) continue;
+    seen.add(display);
+
+    chips.push('بدون ' + display);
+
+    if(KNOWN_SAUCES.some(k=>display.includes(k))){
+      sauceItems.push(display);
+    }
+  }
+
+  for(const s of sauceItems){
+    const chip = 'إضافة ' + s;
+    if(!chips.includes(chip)) chips.push(chip);
+  }
+
+  /* ═══ الحار: دائماً كخيارين منفصلين معاً ═══ */
+  chips.push('حار');
+  chips.push('بدون حار');
+
+  const hasPickle = [...seen].some(s=>s.includes('مخلل') || s.includes('طرشي'));
+  if(hasPickle) chips.push('مخلل على جنب');
+
+  const hasGarlic = [...seen].some(s=>s.includes('ثوم'));
+  if(hasGarlic) chips.push('ثومية على جنب');
+
+  return chips;
+}
+
+
+
+
+
+
+
     const WATER_PRICE=250;
 
     const DEF={n:11,th:'dark',t:{},menu:[
@@ -541,18 +677,60 @@ function pickerTab(ci){
       occ(t);if(!t.p)t.p=1;vibe();save();refreshPickGrid();
     }
 
-    function noteS(i){
-      const x=T(V.n).l[i];
-      if(!x){console.warn('noteS: no item at index',i);return}
-      let o='';
-      for(let k=1;k<=x.q;k++)o+=`<option value="${k}" ${k==1?'selected':''}>${k}</option>`;
-      openSheet(`<h3>📝 ${h(x.n)}</h3>
-        ${x.q>1?`<label>الملاحظة تنطبق على كم وحدة من ${x.q}؟<select id="cnt">${o}</select></label>`:''}
-        <div class="chips">${CH.map(c=>`<button type="button" class="chip" onclick="addC(this)">${c}</button>`).join('')}</div>
-        <label>الملاحظة</label>
-        <textarea id="nt" rows="2" placeholder="اكتب ملاحظة...">${h(x.o)}</textarea>
-        <button type="button" class="pb" style="width:100%" onclick="saveN(${i})">حفظ الملاحظة</button>`);
+
+
+
+function noteS(i){
+  const x=T(V.n).l[i];
+  if(!x){console.warn('noteS: no item at index',i);return}
+  let o='';
+  for(let k=1;k<=x.q;k++)o+=`<option value="${k}" ${k==1?'selected':''}>${k}</option>`;
+
+  const chips = getChipsForItem(x.n);
+
+  /* ═══ فصل صريح: الحار و"بدون حار" دائماً في الخيارات ═══ */
+  const heatChips = ['حار', 'بدون حار'].filter(c => chips.includes(c));
+  const noChips   = chips.filter(c => c.startsWith('بدون ') && c !== 'بدون حار');
+  const addChips  = chips.filter(c => c.startsWith('إضافة '));
+  const otherChips = chips.filter(c =>
+    !c.startsWith('بدون ') &&
+    !c.startsWith('إضافة ') &&
+    c !== 'حار' && c !== 'بدون حار'
+  ).concat(heatChips);   /* ← نضم الحار آخر الخيارات */
+
+  const chipBtn = c => `<button type="button" class="chip" onclick="addC(this)">${c}</button>`;
+
+  let chipsHTML = '';
+  if(chips.length === 0){
+    chipsHTML = `<p class="muted" style="font-size:13px;margin:8px 0;text-align:center;padding:10px;background:var(--sf);border-radius:10px;border:1px dashed var(--br)">هذي الوجبة ما تحتاج ملاحظات مكونات — اكتب أدناه إذا تريد.</p>`;
+  } else {
+    if(noChips.length){
+      chipsHTML += `<label style="color:var(--dg);font-size:13px">🚫 بدون...</label>
+        <div class="chips">${noChips.map(chipBtn).join('')}</div>`;
     }
+    if(addChips.length){
+      chipsHTML += `<label style="color:var(--ok);font-size:13px">➕ إضافة...</label>
+        <div class="chips">${addChips.map(chipBtn).join('')}</div>`;
+    }
+    if(otherChips.length){
+      chipsHTML += `<label style="color:var(--mu);font-size:13px">⚙️ خيارات</label>
+        <div class="chips">${otherChips.map(chipBtn).join('')}</div>`;
+    }
+  }
+
+  openSheet(`<h3>📝 ${h(x.n)}</h3>
+    ${x.q>1?`<label>الملاحظة تنطبق على كم وحدة من ${x.q}؟<select id="cnt">${o}</select></label>`:''}
+    ${chipsHTML}
+    <label>الملاحظة</label>
+    <textarea id="nt" rows="2" placeholder="اكتب ملاحظة...">${h(x.o)}</textarea>
+    <button type="button" class="pb" style="width:100%" onclick="saveN(${i})">حفظ الملاحظة</button>`);
+}
+
+
+
+
+
+
     function addC(b){
       const e=$('#nt');if(!e)return;
       const v=e.value.trim();
