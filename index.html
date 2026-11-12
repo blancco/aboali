@@ -1,0 +1,1249 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#14574d">
+    <title>كابتن محمد</title>
+    <style>
+        :root{--bg:#eef0ec;--sf:#fff;--tx:#14231f;--mu:#5d6d68;--br:#d9dfda;--pr:#123b34;--p2:#0d2b26;--pt:#f4efe3;--ac:#c8963e;--at:#2a1c02;--dg:#a8372c;--ok:#2f9e6a;--wa:#2b7fb8;--sh:0 1px 2px #0001,0 6px 18px #12302a14}
+        :root[data-theme="dark"]{--bg:#16231f;--sf:#1f322d;--tx:#eef3ef;--mu:#a6bbb4;--br:#2f4a42;--pr:#16403a;--p2:#0d2b26;--ac:#e2b35c;--dg:#e5705f;--ok:#43c188;--sh:0 2px 12px #09191660}
+        *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        html,body{margin:0}
+        body{background:var(--bg);color:var(--tx);font-family:system-ui,Roboto,"Noto Sans Arabic",Tahoma,sans-serif;font-size:16px;padding-bottom:calc(90px + env(safe-area-inset-bottom,0px));min-height:100vh}
+        button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;transition:transform .12s,background .15s,color .15s}
+        button:active{transform:scale(.97)}
+        input,textarea,select{width:100%;font:inherit;padding:12px;border-radius:14px;border:1px solid var(--br);background:var(--sf);color:var(--tx);margin:6px 0 12px;line-height:1.6;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+        input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ac)}
+        label{font-weight:700;font-size:14px;display:block;margin-top:8px}
+
+        header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:linear-gradient(160deg,var(--pr),var(--p2));color:var(--pt);display:flex;align-items:center;gap:10px;padding:16px 16px 18px;border-radius:0 0 24px 24px;box-shadow:0 8px 24px #0a1f1b40;overflow:hidden}
+        header::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% 140%,#c8963e55,transparent 48%);pointer-events:none}
+        header>*{position:relative;z-index:1}
+        header h1{flex:1;margin:0;font-size:22px;font-weight:800}
+        header h1 small{display:block;font-size:13px;font-weight:500;opacity:.85;margin-top:3px;color:var(--ac)}
+        header .ic{font-size:19px;background:#ffffff1a;border-radius:14px;width:44px;height:44px;display:grid;place-items:center;color:var(--pt)}
+        header .ic:active{background:#ffffff30}
+
+        main{padding:16px 14px;max-width:760px;margin:auto}
+        .muted{color:var(--mu);font-size:14px}
+        .h3{font-size:17px;font-weight:800;margin:18px 4px 10px;display:flex;align-items:center;gap:8px}
+        .h3 .muted{font-weight:400;font-size:13px}
+        .em{text-align:center;color:var(--mu);padding:34px 0;font-size:15px;line-height:1.8}
+
+        .filters{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px}
+        .filters button{flex:none;padding:9px 16px;border-radius:20px;border:1px solid var(--br);background:var(--sf);font-weight:700;font-size:14px;color:var(--mu)}
+        .filters button.a{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+        :root[data-theme="dark"] .filters button.a{background:var(--ac);color:var(--at);border-color:var(--ac)}
+
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:12px}
+        .tb{background:var(--sf);border:1px solid var(--br);border-radius:20px;padding:12px 8px;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:var(--sh);text-align:center;position:relative;overflow:hidden}
+        .tb::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--ok);opacity:.7}
+        .tb.occ::before{background:var(--ac)}
+        .tb.late::before{background:var(--dg)}
+        .tb b{font-size:28px;font-weight:800;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--br);color:var(--pr)}
+        :root[data-theme="dark"] .tb b{color:var(--ac)}
+        .tb.occ{background:linear-gradient(165deg,var(--pr),var(--p2));border-color:var(--ac);color:var(--pt)}
+        .tb.occ b{border-color:var(--ac);color:var(--ac);background:#ffffff14}
+        .tb span{font-size:12px;color:var(--mu);line-height:1.45}
+        .tb.occ span{color:var(--pt);opacity:.9}
+        .tb .tot{font-size:13px;font-weight:800;color:var(--ac);margin-top:2px}
+
+        .row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:12px 14px;margin-bottom:10px;box-shadow:var(--sh)}
+        .row b{font-size:15px}
+        .st{display:flex;align-items:center;gap:8px}
+        .st button,.q button{width:40px;height:40px;border-radius:12px;background:var(--pr);color:var(--pt);font-size:22px;font-weight:700;display:grid;place-items:center}
+        .st b,.q b{min-width:28px;text-align:center;font-size:19px}
+        .w{padding:10px 14px;border-radius:12px;border:1.5px solid var(--br);font-weight:700;background:var(--bg);font-size:14px}
+        .w.on{background:var(--wa);border-color:var(--wa);color:#fff}
+
+        .ln{background:var(--sf);border:1px solid var(--br);border-inline-start:4px solid var(--ac);border-radius:14px;padding:10px;margin-bottom:10px;box-shadow:var(--sh)}
+        .ln.dn{opacity:.6;border-inline-start-color:var(--ok)}
+        .ln.dn .nm{text-decoration:line-through;color:var(--mu)}
+        .r1{display:flex;align-items:center;gap:6px}
+        .q{display:flex;align-items:center;gap:2px;background:var(--bg);border-radius:14px;padding:2px}
+        .q button{width:32px;height:32px;font-size:18px;border-radius:10px}
+        .q b{min-width:24px;font-size:15px}
+        .ck{width:32px;height:32px;border-radius:50%;border:2px solid var(--br);flex:none;font-weight:800;color:#fff;font-size:16px;display:grid;place-items:center}
+        .ck.on{background:var(--ok);border-color:var(--ok)}
+        .nm{flex:1;font-weight:700;padding:0 6px;line-height:1.35;font-size:15px}
+        .nm small{display:block;color:var(--mu);font-weight:500;font-size:12px;margin-top:2px}
+        .ic{font-size:16px;padding:8px;border-radius:10px;min-width:34px;min-height:34px;display:grid;place-items:center}
+        .ic:active{background:var(--bg)}
+        .nt{margin-top:8px;background:color-mix(in srgb,var(--ac) 18%,transparent);border-radius:10px;padding:7px 10px;font-size:14px;line-height:1.5}
+        .ds{margin-top:8px;color:var(--mu);font-size:14px;line-height:1.7;border-top:1px dashed var(--br);padding-top:8px}
+        .ed{color:var(--ac);font-weight:800;font-size:14px;padding:4px 6px;border-radius:8px}
+        .add{width:100%;border:2px dashed var(--ac);border-radius:14px;padding:13px;font-weight:800;color:var(--ac);margin:8px 0 10px;background:transparent;font-size:15px}
+
+        .bar{position:fixed;inset:auto 0 0;background:color-mix(in srgb,var(--sf) 92%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--br);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;z-index:6}
+        .pb,.sb,.db,.gp{flex:1;padding:14px 10px;border-radius:14px;font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .pb{background:var(--pr);color:var(--pt)}
+        .sb{background:var(--ac);color:var(--at)}
+        .db{background:var(--dg);color:#fff}
+        .gp{background:var(--bg);border:1.5px solid var(--br);color:var(--tx)}
+
+        #nav{position:fixed;inset:auto 0 0;background:var(--sf);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:7;display:flex;box-shadow:0 -2px 12px #0000001a}
+        .nv{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:12px;color:var(--mu);font-weight:700}
+        .nv span{font-size:22px;line-height:1}
+        .nv small{font-size:11px;font-weight:600}
+        .nv.on{color:var(--pr);background:color-mix(in srgb,var(--pr) 10%,transparent)}
+        :root[data-theme="dark"] .nv.on{color:var(--ac);background:color-mix(in srgb,var(--ac) 15%,transparent)}
+
+        .sh{position:fixed;inset:0;background:#0009;z-index:20;display:flex;align-items:flex-end}
+        .sh[hidden]{display:none}
+        .card{background:var(--bg);width:100%;max-height:92%;overflow:auto;border-radius:24px 24px 0 0;padding:20px 14px calc(16px + env(safe-area-inset-bottom,0px));position:relative;animation:fade .18s ease}
+        @keyframes up{from{opacity:.6}to{opacity:1}}
+        .card::before{content:"";position:absolute;top:8px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:var(--br)}
+        .card h3{margin:6px 0 12px;font-size:17px}
+
+        .psearch{position:sticky;top:0;background:var(--bg);padding-bottom:8px;z-index:1;margin:-4px -2px 6px}
+        .tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:4px}
+        .tabs button{flex:none;padding:9px 16px;border-radius:20px;background:var(--sf);border:1px solid var(--br);font-weight:700;font-size:14px;color:var(--mu)}
+        .tabs button.a{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+        :root[data-theme="dark"] .tabs button.a{background:var(--ac);color:var(--at);border-color:var(--ac)}
+        .pg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        .it{position:relative;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:12px 10px;font-weight:700;min-height:76px;line-height:1.35;box-shadow:var(--sh);text-align:start;font-size:14px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+        .it small{display:block;color:var(--ac);font-weight:800;font-size:12.5px}
+        .it i{position:absolute;top:-7px;left:-6px;background:var(--ac);color:var(--at);border-radius:12px;min-width:26px;padding:2px 7px;font-style:normal;font-weight:800;font-size:13px;text-align:center}
+        .pk-foot{position:sticky;bottom:0;background:var(--bg);padding-top:10px;margin-top:10px;border-top:1px solid var(--br);display:flex;gap:8px;align-items:center}
+        .pk-foot>div{flex:1;font-weight:800;font-size:15px}
+        .pk-foot b{color:var(--ac)}
+
+        .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+        .chip{padding:8px 14px;border-radius:18px;border:1px solid var(--br);background:var(--sf);font-size:14px;font-weight:600}
+
+        .cat-card{display:flex;align-items:center;gap:10px;background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:14px 12px;margin-bottom:10px;box-shadow:var(--sh)}
+        .cat-main{flex:1;display:flex;align-items:center;gap:12px;text-align:start;padding:0;background:transparent;min-width:0}
+        .cat-info{flex:1;min-width:0;text-align:start}
+        .cat-name{font-weight:800;font-size:16.5px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .cat-meta{color:var(--mu);font-size:12.5px;margin-top:4px}
+        .cat-actions{display:flex;gap:4px;flex:none}
+
+        .item-card{display:flex;align-items:flex-start;gap:10px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:12px;margin-bottom:8px;box-shadow:var(--sh)}
+        .item-info{flex:1;min-width:0}
+        .iname{font-weight:800;font-size:15px;line-height:1.3}
+        .iprice{color:var(--ac);font-weight:800;font-size:14px;margin-top:3px}
+        .idesc{color:var(--mu);font-size:13px;line-height:1.5;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .item-actions{display:flex;flex-direction:column;gap:4px;flex:none}
+
+        .set-item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--sh)}
+        .set-item.block{display:block}
+        .set-item b{font-size:15px}
+        .set-item .muted{font-size:12.5px;margin-top:3px;display:block}
+        .io-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+
+        #dlg{align-items:center;justify-content:center;z-index:30}
+        #dlg .card{border-radius:22px;width:calc(100% - 28px);max-width:420px;padding:20px 16px;max-height:80%;animation:fade .18s}
+        @keyframes fade{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+        #dlg .card::before{display:none}
+
+        #toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:16px;right:16px;background:#1a2a26;color:#fff;border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:8px;z-index:60;opacity:0;visibility:hidden;transform:translateY(-150%);transition:opacity .22s,transform .22s,visibility 0s .22s;box-shadow:0 8px 24px #0005;font-size:14.5px;pointer-events:none;max-width:520px;margin:0 auto}
+        #toast.on{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .22s,transform .22s,visibility 0s 0s}
+        #toast span{flex:1}
+        #toast button{color:var(--ac);font-weight:800;padding:6px 12px;border-radius:10px;background:#ffffff1a;font-size:13.5px;flex:none;pointer-events:auto}
+        #toast button.tclose{color:#fff;opacity:.7;padding:6px 8px;font-size:16px;background:transparent}
+
+        .json-ta{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;direction:ltr;text-align:left;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto}
+    </style></head><body>
+<div id="app"></div>
+<div class="sh" id="sh" hidden onclick="if(event.target===this)closeSheet()"><div class="card" id="shc"></div></div>
+<div class="sh" id="dlg" hidden onclick="if(event.target===this)closeDlg()"><div class="card" id="dlgc"></div></div>
+<div id="toast"></div>
+<div id="nav"></div>
+<script>
+    /* ============================================================
+       كابتن محمد — v6 (نقل البيانات)
+       ============================================================ */
+    console.log('[Captain] v6 loaded');
+    const KEY='captain_v3',$=s=>document.querySelector(s);
+    const h=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const nf=n=>Number(n||0).toLocaleString('en-US');
+    const vibe=()=>{try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}};
+    const CH=['بدون بصل','بدون طماطم','بدون باذنجان','بدون مخلل','مع مخلل','مخلل على جنب','ثومية على جنب','بدون ثومية','حار','بدون حار','إضافة ثومية','إضافة طحينة'];
+    const WATER_PRICE=250;
+
+    const DEF={n:11,th:'dark',t:{},menu:[
+     {c:'شاورما',i:[
+      {n:'شاورما لحم - صمون عراقي حجري',p:6000,d:'شرائح لحم عجل متبّلة ومشوية على السيخ، صمون عراقي حجري طازج، طماطم، بصل، مخلل وثومية.'},
+      {n:'شاورما لحم - عيش سوري صاج',p:6000,d:'لحم عجل متبّل ومشوي، عيش سوري رقيق محمّص على الصاج، طماطم، بصل، مخلل وثومية.'},
+      {n:'شاورما دجاج - صمون عراقي حجري',p:5000,d:'صدور دجاج متبّلة بالليمون والثوم، صمون حجري ساخن، مخلل وثومية.'},
+      {n:'شاورما دجاج - عيش سوري صاج',p:5000,d:'دجاج شاورما بعيش سوري محمّص على الصاج، مخلل وثومية، مقرمش.'}
+     ]},
+     {c:'فلافل',i:[
+      {n:'فلافل - صمون حجري',p:2500,d:'أقراص فلافل مقرمشة، صمون حجري، طماطم، مخلل، باذنجان وطحينة.'},
+      {n:'فلافل - صمون فرنسي',p:2500,d:'فلافل مقرمشة، صمون فرنسي، طماطم، مخلل، باذنجان وطحينة.'},
+      {n:'فلافل - عيش سوري',p:2500,d:'فلافل بعيش سوري، طماطم، مخلل، باذنجان وطحينة.'}
+     ]},
+     {c:'مقبلات',i:[
+      {n:'مقبلات كبير',p:8000,d:'تكفي 4-5 أشخاص: حمص، متبّل، تبّولة، ورق عنب، زيت زيتون.'},
+      {n:'مقبلات وسط',p:5000,d:'تكفي 2-3 أشخاص: حمص، متبّل، تبّولة.'},
+      {n:'مقبلات صغير',p:3000,d:'لشخص أو شخصين: حمص، متبّل.'}
+     ]},
+     {c:'سلطة',i:[
+      {n:'سلطة كبير',p:5000,d:'تكفي 4-5 أشخاص: خس، خيار، طماطم، جزر، بصل، زيتون، ليمون وزيت زيتون.'},
+      {n:'سلطة وسط',p:3000,d:'تكفي 2-3 أشخاص.'},
+      {n:'سلطة صغير',p:2000,d:'لشخص أو شخصين.'}
+     ]},
+     {c:'مشروبات',i:[
+      {n:'ديو',p:1000,d:'مشروب غازي منعش.'},
+      {n:'ببسي دايت',p:1000,d:'كولا بدون سكر.'},
+      {n:'ببسي عادي',p:1000,d:'كولا منعشة.'},
+      {n:'فانتا',p:1000,d:'برتقال غازي.'},
+      {n:'سبرايت',p:1000,d:'ليمون غازي.'},
+      {n:'مياه',p:500,d:'ماء بارد.'},
+      {n:'لبن (قدح فضي)',p:1500,d:'لبن مخفوق مملّح.'},
+      {n:'لبن (زجاجة)',p:1000,d:'لبن بارد.'}
+     ]}
+    ]};
+
+    /* ═══════════════════════════════════════════════════════════════
+       منيو أبو علي الجاهز — يُستورد بزر واحد
+       ═══════════════════════════════════════════════════════════════ */
+    const ABU_ALI_MENU=[
+    {c:'لفات الفلافل',i:[
+    {n:'فلافل صمون عراقي - مشكل',p:1000,d:'فلافل - بطاطا - باذنجان - خس - خيار - طماطم - لهانة - طرشي'},
+    {n:'فلافل صمون عراقي - عادية',p:1000,d:'فلافل - خس - خيار - طماطم - طرشي'},
+    {n:'فلافل خبز سوري',p:1500,d:'فلافل - حمص - طرطور(طحينية) - خس - خيار - طماطم - نعناع - بقدونس - مخلل لفت'},
+    {n:'فلافل خبز سوري - مشكل',p:1500,d:'فلافل - بطاطا - باذنجان - حمص - طرطور(طحينية) - خيار - طماطم - نعناع - بقدونس - مخلل لفت'},
+    {n:'فلافل صمون فرنسي',p:2000,d:'فلافل - حمص - طرطور(طحينية) - خس - خيار - طماطم - نعناع - بقدونس - مخلل لفت'}
+    ]},
+    {c:'لفات المقالي',i:[
+    {n:'مقالي صمون عراقي',p:1500,d:'بطاطا - باذنجان - خس - خيار - طماطم - لهانة - طرشي'},
+    {n:'بطاطا صمون عراقي',p:1500,d:'بطاطا - خس - طماطم'},
+    {n:'باذنجان صمون عراقي',p:1500,d:'باذنجان - خس - طماطم'},
+    {n:'مقالي خبز سوري',p:1500,d:'بطاطا - باذنجان - حمص - طرطور(طحينية) - خس - خيار - طماطم - نعناع - بقدونس - مخلل لفت'},
+    {n:'بطاطا خبز سوري',p:2000,d:'بطاطا - صوص ثوم - كاتشب - كولسلو - مخلل خيار'},
+    {n:'بطاطا خبز سوري - بالجبن',p:2500,d:'بطاطا - صوص ثوم - مخلل خيار - كولسلو - صوص الجبن'},
+    {n:'باذنجان خبز سوري',p:1500,d:'باذنجان - حمص - طرطور(طحينية) - خس - خيار - طماطم - نعناع - بقدونس - مخل لفت'},
+    {n:'بطاطا - صمون فرنسي',p:2000,d:'بطاطا - كريم ثوم - كاتشب - مخلل خيار'}
+    ]},
+    {c:'وجبات - الفلافل',i:[
+    {n:'وجبة فلافل شخص واحد',p:4000,d:'8 اقراص فلافل - بطاطا - باذنجان - طماطم - طرشي - عمبة - صمون عدد 2'},
+    {n:'وجبة فلافل صغير',p:6000,d:'15 قرص فلافل - بطاطا - باذنجان - طماطم - خيار - طرشي - عمبة - صمون عدد 5'},
+    {n:'وجبة فلافل وسط',p:8000,d:'20 قرص فلافل - بطاطا - باذنجان - طماطم - خيار - طرشي - عمبة - صمون عدد 7'},
+    {n:'وجبة فلافل كبير',p:11000,d:'30 قرص فلافل - بطاطا - باذنجان - خيار - طماطم - طرشي - عمبة - صمون عدد 10'},
+    {n:'وجبة فلافل عربي (خبز سوري)',p:5000,d:'لفة فلافل بالخبز السوري عدد 2 مقطعة - ليمون - طماطم - صوص الطحينية عدد 2'}
+    ]},
+    {c:'ساندوتش لحم',i:[
+    {n:'ساندويتش شاورما لحم - بالخبز السوري',p:3500,d:'صوص الطحينة - مخلل خيار - طماطم - بقدونس - بصل'},
+    {n:'ساندويتش شاورما لحم - بالصمون الحجري',p:3500,d:'طماطم - مخلل خيار - بقدونس - بصل'},
+    {n:'ساندويتش شاورما لحم - بالصمون الفرنسي',p:3500,d:'صوص الطحينة - مخلل خيار - طماطم - بقدونس - بصل'},
+    {n:'صاروخ شاورما لحم',p:5000,d:'صوص الطحينة - مخلل خيار - طماطم - بقدونس - بصل'}
+    ]},
+    {c:'وجبات - شاورما لحم',i:[
+    {n:'وجبة عربي لحم',p:5000,d:'(6) قطع شاورما لحم - بطاطا - خبز محمرة - صوص الطحينة - مخلل خيار - خضروات'},
+    {n:'وجبة عربي لحم دبل',p:9000,d:'(12) قطع شاورما لحم - بطاطا - خبز محمرة - صوص الطحينة - مخلل خيار - خضروات'},
+    {n:'وجبة عربي لحم عائلي',p:22000,d:'(30) قطع شاورما لحم - بطاطا - خبز محمرة - صوص الطحينة - مخلل خيار - خضروات - ببسي عائلي'},
+    {n:'نص نفر شاورما لحم',p:7000,d:'125 غرام شرائح لحم - بطاطا - خبز محمرة - صوص الطحينة - مخلل خيار - خضروات - صمون عدد 2'},
+    {n:'نفر شاورما لحم',p:13000,d:'(250) غرام شرائح لحم + بطاطا + خبز محمرة + صوص الطحينة + مخلل خيار + خضراوات + صمون عدد 4'},
+    {n:'نص كيلو شاورما لحم',p:24000,d:'(250) غرام شرائح لحم + بطاطا + خبز محمرة + صوص الطحينة + مخلل خيار + خضراوات + صمون عدد 6'},
+    {n:'كيلو شاورما لحم',p:45000,d:'كيلو غرام شرائح لحم + بطاطا + خبز محمرة + صوص الطحينة + مخلل خيار + خضراوات + صمون عدد 10'},
+    {n:'كلاص شاورما لحم',p:3000,d:'شرائح شاورما لحم + بطاطا + بصل + طماطم + خس + لهانة + جزر + بقدونس + صوص خاص'}
+    ]},
+    {c:'ساندويتش - شاورما دجاج',i:[
+    {n:'ساندويتش شاورما دجاج بالخبز السوري',p:2500,d:'كريم الثوم + مخلل خيار'},
+    {n:'ساندويتش شاورما دجاج بالخبز السوري مع بطاطا',p:3000,d:'كريم الثوم + مخلل خيار + بطاطا'},
+    {n:'ساندويتش شاورما دجاج بالصمون العراقي',p:2500,d:'طماطم + مخلل خيار'},
+    {n:'ساندويتش شاورما دجاج بالصمون الفرنسي',p:2500,d:'كريم الثوم + مخلل خيار'},
+    {n:'صاروخ شاورما دجاج',p:4000,d:'كريم الثوم + مخلل خيار'}
+    ]},
+    {c:'وجبات - شاورما دجاج',i:[
+    {n:'وجبة عربي دجاج',p:4000,d:'(6) قطع شاورما دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات'},
+    {n:'وجبة عربي دجاج دبل',p:7000,d:'(12) قطعة شاورما دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات'},
+    {n:'وجبة عربي دجاج عائلي',p:18000,d:'(30) قطعة شاورما دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات + بيبسي عائلي'},
+    {n:'نص نفر دجاج',p:6000,d:'(130) غرام شرائح دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات + صمون عدد 2'},
+    {n:'نفر شاورما دجاج',p:11000,d:'(260) غرام شرائح دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات + صمون عدد 4'},
+    {n:'نص كيلو شاورما دجاج',p:19000,d:'(500) غرام شرائح دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار + خضراوات + صمون عدد 6'},
+    {n:'كيلو شاورما دجاج',p:36000,d:'كيلوغرام شرائح دجاج + بطاطا + خبز محمرة + كريم ثوم + مخلل خيار+ خضراوات + صمون عدد 10'},
+    {n:'كلاص شاورما دجاج',p:2500,d:'شرائح دجاج + بطاطا + طماطم + خس + لهانة + جزر + صوص خاص'}
+    ]},
+    {c:'شاورما مشكل',i:[
+    {n:'وجبة عربي مشكل دبل',p:7500,d:'(6) قطع شاورما دجاج + 6 قطع شاورما لحم + صوص الطحينة + كريم ثوم + بطاطا + خبز محمرة + مخلل خيار + خضراوات'},
+    {n:'وجبة عربي مشكل عائلي',p:20000,d:'(15) قطعة شاورما لحم + (15) قطعة شاورما دجاج + صوص الطحينة + كريم ثوم + خبز محمرة + مخلل خيار + خضراوات + بيبسي عائلي'}
+    ]},
+    {c:'الوجبات الغربية',i:[
+    {n:'ساندويتش فرانشيسكو',p:5000,d:'دجاج الفرانشيسكو + مايونيز + فطر + ذرة + خس + جبنة موزاريلا + كلاص بطاطا'},
+    {n:'ساندويتش فاهيتا',p:5000,d:'دجاج فاهيتا + مايونيز + بصل + فليفلة + فطر + جبنة موزاريلا + كلاص بطاطا'},
+    {n:'ساندويتش كرسبي',p:5000,d:'دجاج مقرمش + مايونيز + صوص شيدر + صوص هني ماسترد + صوص كوكتيل + كولسلو + خس + مخلل خيار'},
+    {n:'برغر لحم كلاسيك',p:5000,d:'شريحة لحم + صوص الكوكتيل + صوص هني ماسترد + خس + طماطم + بصل مكرمل + كلاص بطاطا'},
+    {n:'برغر لحم دبل',p:7000,d:'شريحة لحم عدد 2 + صوص الكوكتيل + صوص هني ماسترد + خس + طماطم + بصل مكرمل + كلاص بطاطا'},
+    {n:'برغر دجاج',p:4000,d:'صدر دجاج مشوي + مايونيز + صوص هني ماسترد + طماطم +خس + بصل مكرمل + كلاص بطاطا'},
+    {n:'برغر دجاج دبل',p:6000,d:'صدر دجاج مشوي عدد 2 + مايونيز + صوص هني ماسترد + طماطم +خس + بصل مكرمل + كلاص بطاطا'},
+    {n:'كرسبي برغر',p:5000,d:'دجاج مقرمش + خس + مخلل خيار + صوص شيدر + صوص هني ماسترد + صوص كوكتيل + كولسلو'},
+    {n:'وجبة كرسبي',p:9000,d:'دجاج مقرمش عدد 4 + كريم ثوم + كولسلو + مخلل خيار+ صوص هني ماسترد + صوص كوكتيل + بطاطا + صمون فرنسي'}
+    ]},
+    {c:'الريزو',i:[
+    {n:'ريزو كرسبي',p:5000,d:'أرز + دجاج مقرمش + صوص كوكتيل + صوص هني ماسترد'},
+    {n:'ريزو شاورما دجاج',p:5000,d:'أرز + شرائح شاورما دجاج + صوص كوكتيل + صوص هني ماسترد'},
+    {n:'ريزو شاورما لحم',p:6000,d:'أرز + شرائح شاورما لحم + صوص باربكيو + صوص هني ماسترد'},
+    {n:'بطاطا أبو علي',p:5000,d:'بطاطا + دجاج مقرمش + شيبس + صوص شيدر + صوص كوكتيل'}
+    ]},
+    {c:'المقبلات',i:[
+    {n:'صحن فلافل 6 أقراص',p:1000,d:''},
+    {n:'كلاص بطاطا',p:1000,d:''},
+    {n:'صحن بطاطا صغير',p:2000,d:''},
+    {n:'صحن بطاطا وسط',p:3000,d:''},
+    {n:'صحن بطاطا كبير',p:4000,d:''},
+    {n:'صحن باذنجان',p:2000,d:''},
+    {n:'صحن مقبلات صغير',p:2000,d:''},
+    {n:'صحن مقبلات وسط',p:4000,d:''},
+    {n:'صحن مقبلات كبير',p:6000,d:''},
+    {n:'صحن سلطة',p:2000,d:''},
+    {n:'صحن مخلل',p:2000,d:''}
+    ]},
+    {c:'المشروبات الساخنة',i:[
+    {n:'شاي',p:500,d:''},
+    {n:'ليمون',p:750,d:''},
+    {n:'قهوة جكليتية',p:2500,d:''},
+    {n:'اسبيرسو',p:2000,d:''},
+    {n:'امريكانو',p:2000,d:''},
+    {n:'كابتشينو',p:2500,d:''},
+    {n:'لاتي',p:2500,d:''},
+    {n:'موكا',p:2500,d:''},
+    {n:'قهوة تركية',p:1500,d:''},
+    {n:'هوت جوكليت',p:2000,d:''}
+    ]},
+    {c:'القهوة الباردة',i:[
+    {n:'قهوة باردة',p:2000,d:''},
+    {n:'آيس لاتي',p:2500,d:''},
+    {n:'قهوة مثلجة - مع كريمة الفانيلا',p:3000,d:''}
+    ]}
+    ];
+
+    let S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+    if(!S||!S.menu)S=JSON.parse(JSON.stringify(DEF));
+    S.t=S.t||{};
+    if(S.hist)delete S.hist;
+    S.menu.forEach(c=>{c.i=c.i||[];c.i.forEach(it=>{if(it.p==null)it.p=0})});
+    Object.values(S.t).forEach(t=>{(t.l||[]).forEach(x=>{if(x.pr==null)x.pr=0})});
+    Object.values(S.t).forEach(t=>{
+      if(t.w===true)t.w=1;
+      else if(t.w===false||t.w==null)t.w=0;
+      else if(typeof t.w!=='number')t.w=0;
+    });
+
+    let V={p:'home',n:0,ci:0,cat:0,d:-1};
+    let Q={ps:'',ms:''};
+
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){console.warn('save error',e)}}
+    const T=n=>S.t[n]||(S.t[n]={occ:false,p:0,w:false,l:[]});
+    const desc=n=>{for(const m of S.menu)for(const x of m.i)if(x.n==n)return x.d||'';return''};
+    const menuPrice=n=>{for(const m of S.menu)for(const x of m.i)if(x.n==n)return x.p||0;return 0};
+    const itemPrice=x=>x.pr!=null?x.pr:menuPrice(x.n);
+    const mn=a=>a?Math.max(0,Math.floor((Date.now()-a)/60000)):'';
+    const mnTxt=m=>m<60?m+' د':Math.floor(m/60)+' س '+((m%60)?(m%60)+' د':'');
+    const lineTotal=x=>itemPrice(x)*x.q;
+    const tTotal=t=>(t.l||[]).reduce((s,x)=>s+lineTotal(x),0)+((t.w||0)*WATER_PRICE);
+
+    function render(){
+      try{
+        let scr='';
+        if(V.p=='home')scr=home();
+        else if(V.p=='t')scr=tbl();
+        else if(V.p=='menu')scr=menuHome();
+        else if(V.p=='cat')scr=menuCat(V.ci);
+        else if(V.p=='set')scr=settings();
+        $('#app').innerHTML=scr;
+        $('#nav').innerHTML=navHTML();
+        $('#nav').style.display=(V.p=='t')?'none':'';
+      }catch(e){console.error('render error',e)}
+    }
+    function navHTML(){
+      const active=V.p=='cat'?'menu':V.p;
+      const items=[{p:'home',i:'🍽️',t:'الطاولات'},{p:'menu',i:'📖',t:'القائمة'},{p:'set',i:'⚙️',t:'الإعدادات'}];
+      return items.map(x=>`<button class="nv ${active==x.p?'on':''}" onclick="nav('${x.p}')"><span>${x.i}</span><small>${x.t}</small></button>`).join('');
+    }
+    function nav(p){
+      if(p=='menu'){V.p='menu';V.ci=0}
+      else V.p=p;
+      if(p=='home')V.d=-1;
+      Q.ms='';Q.ps='';
+      render();scrollTo(0,0);
+    }
+
+    function home(){
+      const occ=Object.values(S.t).filter(t=>t&&t.occ).length;
+      const free=S.n-occ;
+      let g='';
+      for(let n=1;n<=S.n;n++){
+        const t=S.t[n],o=t&&t.occ;
+        const k=o?(t.l||[]).reduce((a,x)=>a+x.q,0):0;
+        const pe=o?(t.l||[]).filter(x=>!x.s).reduce((a,x)=>a+x.q,0):0;
+        const late=o&&t.at&&(Date.now()-t.at>30*60000);
+        const cls=o?(late?'occ late':'occ'):'';
+        const total=o?nf(tTotal(t)):''; const mins=o?mn(t.at):'';
+        g+=`<button class="tb ${cls}" onclick="openT(${n})">
+          <b>${n}</b>
+          <span>${o?`${t.p||0} أشخاص ${t.w?'💧'+(t.w>1?'×'+t.w:''):''}<br>${k?(pe?'⏳ '+pe+' معلّق':'✅ مكتمل'):'بلا طلبات'}${mins!==''?'<br>⏱ '+mnTxt(mins):''}`:'متاحة'}</span>
+          ${total?`<span class="tot">${total} د.ع</span>`:''}
+        </button>`;
+      }
+      return `<header>
+        <h1>كابتن محمد<small>${occ} محجوزة • ${free} متاحة</small></h1>
+      </header>
+      <main><div class="grid">${g}</div></main>`;
+    }
+    function openT(n){V={p:'t',n,ci:V.ci||0,cat:V.cat||0,d:-1};render();scrollTo(0,0)}
+    function goHome(){V={p:'home',ci:V.ci||0,cat:V.cat||0,d:-1};render()}
+
+    function tbl(){
+      const n=V.n,t=T(n);
+      const ls=(t.l||[]).map((x,i)=>{
+        const price=itemPrice(x),q=x.q,showDesc=V.d==i;
+        return `<div class="ln${x.s?' dn':''}">
+          <div class="r1">
+            <button class="ck ${x.s?'on':''}" onclick="srv(${i})">${x.s?'✓':''}</button>
+            <div class="q"><button onclick="qty(${i},1)">+</button><b>${q}</b><button onclick="qty(${i},-1)">−</button></div>
+            <div class="nm" onclick="V.d=V.d==${i}?-1:${i};render()">${h(x.n)}<small>${nf(price)} × ${q} = ${nf(price*q)} د.ع</small></div>
+            <button class="ic" onclick="V.d=V.d==${i}?-1:${i};render()">ℹ️</button>
+            <button class="ic" onclick="noteS(${i})">📝</button>
+            <button class="ic" onclick="del(${i})">✕</button>
+          </div>
+          ${x.q>1?`<button class="sp ed" style="margin-top:6px" onclick="splitN(${i})">✂️ ملاحظة مختلفة لواحدة منها</button>`:''}
+          ${x.o?`<div class="nt">📝 ${h(x.o)}</div>`:''}
+          ${showDesc?`<div class="ds">${h(desc(x.n))||'ما اكو شرح لهذي الوجبة'}</div>`:''}
+        </div>`;
+      }).join('')||'<p class="em">ماكو طلبات بعد<br><small>اضغط "إضافة طلب" للبدء</small></p>';
+      const total=tTotal(t);
+      const pending=(t.l||[]).filter(x=>!x.s).reduce((a,x)=>a+x.q,0);
+      const mins=mn(t.at);
+      return `<header>
+        <button class="ic" onclick="goHome()">➡️</button>
+        <h1>طاولة ${n}<small>${mins!==''?'⏱ '+mnTxt(mins)+' • ':''}${total>0?nf(total)+' د.ع':''}</small></h1>
+        <button class="ic" onclick="showBill()">🧾</button>
+      </header>
+      <main>
+        <div class="row"><b>👥 عدد الأشخاص</b><div class="st"><button onclick="ppl(1)">+</button><b>${t.p||0}</b><button onclick="ppl(-1)">−</button></div></div>
+        <div class="row"><b>💧 الماء <span style="color:var(--mu);font-weight:500;font-size:13px">(${nf(WATER_PRICE)} د.ع للوحدة)</span></b>
+  <div class="st"><button onclick="wtr(1)">+</button><b>${t.w||0}</b><button onclick="wtr(-1)">−</button></div>
+</div>
+${(t.w||0)>0?`<div class="row" style="padding:8px 14px;font-size:13px;color:var(--mu)">
+  <span>💧 ${t.w} × ${nf(WATER_PRICE)}</span><b style="color:var(--ac)">${nf(t.w*WATER_PRICE)} د.ع</b>
+</div>`:''}
+        <div class="h3">الطلبات ${pending?`<span class="muted">(${pending} معلّق)</span>`:''}
+          <button class="ed" style="display:inline;margin:0 12px" onclick="srvAll()">✅ نزّل الكل</button></div>
+        ${ls}
+        <button class="add" onclick="openPick()">+ إضافة طلب</button>
+        ${total>0?`<div class="row" style="background:linear-gradient(165deg,var(--pr),var(--p2));color:var(--pt);border-color:var(--ac);margin-top:14px"><b>الإجمالي</b><b style="font-size:20px;color:var(--ac)">${nf(total)} د.ع</b></div>`:''}
+      </main>
+      <div class="bar">
+        ${t.occ
+          ?`<button class="pb" onclick="openPick()">+ طلب</button>
+            <button class="sb" onclick="showBill()">🧾 الفاتورة</button>
+            <button class="db" onclick="clr()">إنهاء</button>`
+          :`<button class="pb" onclick="book()">✅ تم الحجز</button>`}
+      </div>`;
+    }
+    function book(){const t=T(V.n);occ(t);if(!t.p)t.p=1;save();vibe();render()}
+    function ppl(d){const t=T(V.n);t.p=Math.max(0,(t.p||0)+d);occ(t);save();render()}
+    function wtr(d){
+  const t=T(V.n);
+  t.w=Math.max(0,(t.w||0)+d);
+  occ(t);if(!t.p)t.p=1;
+  save();render();
+}
+    function qty(i,d){const t=T(V.n),x=t.l[i];if(!x)return;x.q+=d;if(x.q<=0)t.l.splice(i,1);V.d=-1;save();render()}
+    function del(i){
+      const t=T(V.n),x=t.l[i];if(!x)return;
+      const back={...x};
+      t.l.splice(i,1);V.d=-1;save();render();
+      toast('حُذف: '+x.n,()=>{t.l.push(back);save();render()});
+    }
+    function srv(i){const x=T(V.n).l[i];if(!x)return;x.s=!x.s;merge();vibe();save();render()}
+    function srvAll(){T(V.n).l.forEach(x=>x.s=true);merge();save();vibe();render()}
+    function splitN(i){const l=T(V.n).l,x=l[i];if(!x)return;x.q--;l.splice(i+1,0,{n:x.n,q:1,o:'',s:x.s,pr:x.pr});save();render();noteS(i+1)}
+    function merge(){const l=T(V.n).l;for(let i=0;i<l.length;i++)for(let j=l.length-1;j>i;j--)if(l[j].n==l[i].n&&l[j].o==l[i].o&&l[j].s==l[i].s&&l[j].pr==l[i].pr){l[i].q+=l[j].q;l.splice(j,1)}save()}
+    function occ(t){if(!t.occ){t.occ=true;t.at=Date.now()}}
+
+    function clr(){
+      const tn=V.n;
+      uiConfirm('إنهاء الطاولة وتفريغها؟',()=>{
+        delete S.t[tn];save();
+        goHome();
+        toast('تم تفريغ الطاولة '+tn);
+      },'نعم، فرّغ');
+    }
+
+    function openSheet(x){
+      if(!x){console.warn('openSheet: empty content');return}
+      $('#shc').innerHTML=x;
+      $('#sh').hidden=false;
+    }
+    function closeSheet(){
+      $('#sh').hidden=true;
+      $('#shc').innerHTML='';
+      if(V.p=='t')merge();
+      render();
+    }
+
+function openPick(){picker()}
+function picker(){
+  const cats=S.menu.map((m,i)=>`<button class="${i==V.cat?'a':''}" onclick="pickerTab(${i})">${h(m.c)}</button>`).join('');
+  const cur=S.menu[V.cat]||{i:[]};
+  const q=Q.ps.trim();
+  const items=q
+    ? S.menu.flatMap((m,ci)=>m.i.map((it,ii)=>({it,ci,ii}))).filter(x=>x.it.n.includes(q)||(x.it.d||'').includes(q))
+    : cur.i.map((it,ii)=>({it,ci:V.cat,ii}));
+  const t=T(V.n);
+  const grid=items.map(({it,ci,ii})=>{
+    const k=(t.l||[]).filter(x=>x.n==it.n).reduce((a,x)=>a+x.q,0);
+    return `<button class="it" onclick="pick(${ci},${ii})">${h(it.n)}<small>${it.p?nf(it.p)+' د.ع':''}</small>${k?`<i>${k}</i>`:''}</button>`;
+  }).join('')||'<p class="em" style="grid-column:1/-1">لا نتائج</p>';
+  const total=tTotal(t);
+  openSheet(`
+    <div class="psearch"><input id="ps" placeholder="🔎 ابحث في القائمة..." value="${h(Q.ps)}" oninput="Q.ps=this.value;refreshPickGrid()"></div>
+    <div class="tabs">${cats}</div>
+    <div class="pg" id="pgrid">${grid}</div>
+    <div class="pk-foot"><div>الإجمالي: <b>${nf(total)} د.ع</b></div><button class="pb" style="flex:0 0 100px" onclick="closeSheet()">تم</button></div>`);
+}
+
+/* ═══ [جديدة] تبديل القسم دون إعادة رسم شريط الأقسام ═══ */
+function pickerTab(ci){
+  const tabsEl=document.querySelector('.tabs');
+  const savedScroll=tabsEl?tabsEl.scrollLeft:0;
+
+  V.cat=ci;
+  Q.ps='';
+  const psEl=document.getElementById('ps');
+  if(psEl)psEl.value='';
+
+  /* تحديث الزر النشط فقط — بدون إعادة بناء */
+  if(tabsEl){
+    tabsEl.querySelectorAll('button').forEach((b,idx)=>{
+      b.classList.toggle('a',idx===ci);
+    });
+  }
+
+  /* تحديث شبكة الوجبات فقط */
+  refreshPickGrid();
+
+  /* إعادة موضع التمرير كما كان */
+  if(tabsEl)tabsEl.scrollLeft=savedScroll;
+}
+    function refreshPickGrid(){
+      const q=Q.ps.trim();
+      const cur=S.menu[V.cat]||{i:[]};
+      const items=q
+        ? S.menu.flatMap((m,ci)=>m.i.map((it,ii)=>({it,ci,ii}))).filter(x=>x.it.n.includes(q)||(x.it.d||'').includes(q))
+        : cur.i.map((it,ii)=>({it,ci:V.cat,ii}));
+      const t=T(V.n);
+      const grid=items.map(({it,ci,ii})=>{
+        const k=(t.l||[]).filter(x=>x.n==it.n).reduce((a,x)=>a+x.q,0);
+        return `<button class="it" onclick="pick(${ci},${ii})">${h(it.n)}<small>${it.p?nf(it.p)+' د.ع':''}</small>${k?`<i>${k}</i>`:''}</button>`;
+      }).join('')||'<p class="em" style="grid-column:1/-1">لا نتائج</p>';
+      $('#pgrid').innerHTML=grid;
+    }
+    function pick(ci,j){
+      const m=S.menu[ci]&&S.menu[ci].i[j];
+      if(!m)return;
+      const t=T(V.n),nm=m.n;
+      const x=t.l.find(y=>y.n==nm&&!y.o&&!y.s);
+      if(x)x.q++;else t.l.push({n:nm,q:1,o:'',pr:m.p||0});
+      occ(t);if(!t.p)t.p=1;vibe();save();refreshPickGrid();
+    }
+
+    function noteS(i){
+      const x=T(V.n).l[i];
+      if(!x){console.warn('noteS: no item at index',i);return}
+      let o='';
+      for(let k=1;k<=x.q;k++)o+=`<option value="${k}" ${k==1?'selected':''}>${k}</option>`;
+      openSheet(`<h3>📝 ${h(x.n)}</h3>
+        ${x.q>1?`<label>الملاحظة تنطبق على كم وحدة من ${x.q}؟<select id="cnt">${o}</select></label>`:''}
+        <div class="chips">${CH.map(c=>`<button type="button" class="chip" onclick="addC(this)">${c}</button>`).join('')}</div>
+        <label>الملاحظة</label>
+        <textarea id="nt" rows="2" placeholder="اكتب ملاحظة...">${h(x.o)}</textarea>
+        <button type="button" class="pb" style="width:100%" onclick="saveN(${i})">حفظ الملاحظة</button>`);
+    }
+    function addC(b){
+      const e=$('#nt');if(!e)return;
+      const v=e.value.trim();
+      e.value=(v?v+'، ':'')+b.textContent;
+    }
+    function saveN(i){
+      try{
+        const l=T(V.n).l,x=l[i];
+        if(!x){closeSheet();return}
+        const el=$('#nt');const v=el?el.value.trim():'';
+        const cel=$('#cnt');const c=cel?+cel.value:x.q;
+        if(c<x.q){x.q-=c;l.splice(i+1,0,{n:x.n,q:c,o:v,s:x.s,pr:x.pr})}
+        else x.o=v;
+        save();closeSheet();
+        toast(v?'تم حفظ الملاحظة':'تم مسح الملاحظة');
+      }catch(e){console.error('saveN',e);closeSheet()}
+    }
+
+    function billText(){
+      const t=T(V.n),total=tTotal(t);
+      let s=`*كابتن محمد*\nفاتورة طاولة ${V.n}\n`;
+      s+=`👥 ${t.p||0} أشخاص\n`;
+      if(t.at)s+=`⏱ ${new Date(t.at).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}\n`;
+      s+='\n';
+      (t.l||[]).forEach(x=>{s+=`${x.q} × ${x.n}${x.o?' ('+x.o+')':''} = ${nf(lineTotal(x))}\n`});
+      if(t.w)s+=`${t.w} × 💧 ماء = ${nf(t.w*WATER_PRICE)}\n`;
+      s+=`\n*الإجمالي: ${nf(total)} د.ع*`;
+      return s;
+    }
+    function showBill(){
+      try{
+        const t=T(V.n),total=tTotal(t);
+        const rowsArr=[];
+if(t.w)rowsArr.push(`<tr><td>${t.w}×</td><td>💧 ماء</td><td style="text-align:left">${nf(t.w*WATER_PRICE)}</td></tr>`);
+(t.l||[]).forEach(x=>{
+  rowsArr.push(`<tr><td>${x.q}×</td><td>${h(x.n)}${x.o?`<br><small style="color:#666">${h(x.o)}</small>`:''}</td><td style="text-align:left">${nf(lineTotal(x))}</td></tr>`);
+});
+const rows=rowsArr.join('')||'<tr><td colspan="3" style="color:#666;text-align:center">لا توجد طلبات</td></tr>';
+        const now=new Date().toLocaleString('en-GB',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'});
+        const billHTML=`<h2>كابتن محمد</h2><div class="sub">فاتورة طاولة ${V.n} • ${now}</div>
+          <div>👥 ${t.p||0} أشخاص</div><hr>
+          <table><thead><tr><th>الكمية</th><th>الوجبة</th><th style="text-align:left">المجموع</th></tr></thead>
+          <tbody>${rows}</tbody></table>
+          <div class="total">الإجمالي: ${nf(total)} د.ع</div>
+          <div class="sub" style="margin-top:10px;text-align:center">شكراً لزيارتكم</div>`;
+        const previewHTML=billHTML.replace('<h2>','<h3 style="margin-top:8px">').replace('</h2>','</h3>');
+        openSheet(`<div class="bill">${previewHTML}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px">
+            <button type="button" class="pb" onclick="shareBill()">📤 مشاركة</button>
+            <button type="button" class="sb" onclick="printBill()">🖨️ طباعة</button>
+            <button type="button" class="gp" onclick="copyBill()">📋 نسخ</button>
+            <button type="button" class="gp" onclick="closeSheet()">إغلاق</button>
+          </div>`);
+      }catch(e){console.error('showBill',e);uiAlert('تعذر عرض الفاتورة')}
+    }
+    function copyBill(){
+      const t=billText();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(()=>toast('تم النسخ')).catch(()=>fallbackCopy(t));
+      }else fallbackCopy(t);
+    }
+    function fallbackCopy(t){
+      const e=document.createElement('textarea');e.value=t;e.style.position='fixed';e.style.opacity='0';
+      document.body.appendChild(e);e.select();
+      try{document.execCommand('copy');toast('تم النسخ')}catch(x){uiAlert('تعذر النسخ')}
+      e.remove();
+    }
+    function shareBill(){
+      const t=billText();
+      if(navigator.share)navigator.share({text:t}).catch(()=>{});
+      else copyBill();
+    }
+    function printBill(){try{window.print()}catch(e){uiAlert('الطباعة غير متوفرة')}}
+
+    function menuHome(){
+      const cards=S.menu.map((m,ci)=>{
+        const prices=m.i.map(x=>x.p||0).filter(p=>p>0);
+        const minP=prices.length?Math.min(...prices):0;
+        return `<div class="cat-card">
+          <button class="cat-main" onclick="openCat(${ci})">
+            <div class="cat-info">
+              <div class="cat-name">${h(m.c)}</div>
+              <div class="cat-meta">${m.i.length} وجبة${minP?' • يبدأ من '+nf(minP)+' د.ع':''}</div>
+            </div>
+          </button>
+          <div class="cat-actions">
+            <button class="ic" onclick="renC(${ci})">✏️</button>
+            <button class="ic" onclick="delC(${ci})">🗑️</button>
+          </div>
+        </div>`;
+      }).join('')||'<p class="em">لا توجد أقسام بعد</p>';
+      return `<header><h1>قائمة الطعام<small>${S.menu.length} قسم • ${S.menu.reduce((s,m)=>s+m.i.length,0)} وجبة</small></h1></header>
+        <main>
+          ${cards}
+          <button class="add" onclick="addC2()">+ إضافة قسم جديد</button>
+        </main>`;
+    }
+    function openCat(ci){V.p='cat';V.ci=ci;Q.ms='';render();scrollTo(0,0)}
+    function backToMenu(){V.p='menu';V.ci=0;render()}
+
+    function menuCat(ci){
+      const c=S.menu[ci];
+      if(!c){V.p='menu';return menuHome()}
+      const q=Q.ms.trim();
+      const items=c.i.map((x,ii)=>({x,ii})).filter(({x})=>!q||x.n.includes(q)||(x.d||'').includes(q));
+      const list=items.map(({x,ii})=>`<div class="item-card">
+        <div class="item-info">
+          <div class="iname">${h(x.n)}</div>
+          <div class="iprice">${x.p?nf(x.p)+' د.ع':'بدون سعر'}</div>
+          ${x.d?`<div class="idesc">${h(x.d)}</div>`:''}
+        </div>
+        <div class="item-actions">
+          <button class="ic" onclick="itemS(${ci},${ii})">✏️</button>
+          <button class="ic" onclick="delI(${ci},${ii})">🗑️</button>
+        </div>
+      </div>`).join('')||`<p class="em">${q?'لا نتائج':'لا توجد وجبات بهذا القسم بعد'}</p>`;
+      return `<header>
+        <button class="ic" onclick="backToMenu()">➡️</button>
+        <h1>${h(c.c)}<small>${c.i.length} وجبة</small></h1>
+        <button class="ic" onclick="itemS(${ci},-1)">＋</button>
+      </header>
+      <main>
+        <input placeholder="🔎 ابحث في هذا القسم..." value="${h(Q.ms)}" oninput="Q.ms=this.value;refreshCatItems(${ci})">
+        <div id="cat-items">${list}</div>
+        <button class="add" onclick="itemS(${ci},-1)">+ إضافة وجبة جديدة</button>
+      </main>`;
+    }
+    function refreshCatItems(ci){
+      const c=S.menu[ci];if(!c)return;
+      const q=Q.ms.trim();
+      const items=c.i.map((x,ii)=>({x,ii})).filter(({x})=>!q||x.n.includes(q)||(x.d||'').includes(q));
+      $('#cat-items').innerHTML=items.map(({x,ii})=>`<div class="item-card">
+        <div class="item-info">
+          <div class="iname">${h(x.n)}</div>
+          <div class="iprice">${x.p?nf(x.p)+' د.ع':'بدون سعر'}</div>
+          ${x.d?`<div class="idesc">${h(x.d)}</div>`:''}
+        </div>
+        <div class="item-actions">
+          <button class="ic" onclick="itemS(${ci},${ii})">✏️</button>
+          <button class="ic" onclick="delI(${ci},${ii})">🗑️</button>
+        </div>
+      </div>`).join('')||`<p class="em">${q?'لا نتائج':'لا توجد وجبات بهذا القسم بعد'}</p>`;
+    }
+
+    function renC(ci){
+      const cur=S.menu[ci];if(!cur)return;
+      uiPrompt('اسم القسم',cur.c,v=>{
+        if(v&&v.trim()){S.menu[ci].c=v.trim();save();render();toast('تم تعديل القسم')}
+      });
+    }
+    function delC(ci){uiConfirm('حذف القسم وكل وجباته؟',()=>{
+      S.menu.splice(ci,1);
+      if(V.p=='cat'&&V.ci>=ci){V.p='menu';V.ci=0}
+      save();render();toast('حُذف القسم');
+    },'حذف')}
+    function addC2(){uiPrompt('اسم القسم الجديد','',v=>{
+      if(v&&v.trim()){S.menu.push({c:v.trim(),i:[]});save();render();toast('أُضيف القسم')}
+    })}
+    function delI(ci,ii){uiConfirm('حذف الوجبة؟',()=>{
+      const x=S.menu[ci].i.splice(ii,1)[0];save();render();
+      toast('حُذفت: '+(x?x.n:''));
+    },'حذف')}
+    function itemS(ci,ii){
+      try{
+        const c=S.menu[ci];
+        if(!c){uiAlert('القسم غير موجود');return}
+        const x=ii<0?{n:'',p:0,d:''}:c.i[ii];
+        if(!x){uiAlert('الوجبة غير موجودة');return}
+        openSheet(`<h3>${ii<0?'➕ وجبة جديدة':'✏️ تعديل الوجبة'}</h3>
+          <label>الاسم</label>
+          <input id="iname" value="${h(x.n)}" placeholder="مثال: شاورما لحم">
+          <label>السعر (د.ع)</label>
+          <input id="iprice" type="number" inputmode="numeric" value="${x.p||0}" placeholder="0">
+          <label>الوصف والمكونات</label>
+          <textarea id="idesc" rows="5" placeholder="مثال: لحم عجل متبّل، طماطم، بصل، مخلل، ثومية...">${h(x.d)}</textarea>
+          <button type="button" class="pb" style="width:100%" onclick="saveI(${ci},${ii})">💾 حفظ</button>`);
+      }catch(e){console.error('itemS',e);uiAlert('تعذر فتح النافذة')}
+    }
+    function saveI(ci,ii){
+      try{
+        const c=S.menu[ci];if(!c){uiAlert('القسم غير موجود');return}
+        const nameEl=$('#iname'),priceEl=$('#iprice'),descEl=$('#idesc');
+        if(!nameEl){uiAlert('النموذج مغلق، أعد المحاولة');return}
+        const n=nameEl.value.trim();
+        const p=+(priceEl?priceEl.value:0)||0;
+        const d=descEl?descEl.value.trim():'';
+        if(!n){uiAlert('اكتب اسم الوجبة');return}
+        if(ii<0)c.i.push({n,p,d});
+        else c.i[ii]={n,p,d};
+        Q.ms='';
+        save();closeSheet();
+        toast(ii<0?'أُضيفت الوجبة':'تم التعديل');
+      }catch(e){console.error('saveI',e);uiAlert('تعذر الحفظ')}
+    }
+
+/* ============ Export / Import ============ */
+const SCHEMA_VERSION=6;
+
+let EXP_DATA='';
+let EXP_TITLE='';
+let EXP_SUMMARY='';
+let EXP_FILENAME='';
+
+function exportMenu(){
+  try{
+    EXP_DATA = JSON.stringify({
+      v:SCHEMA_VERSION, type:'menu', app:'captain',
+      exportedAt:new Date().toISOString(),
+      menu:S.menu
+    });
+    EXP_TITLE='📤 تصدير قائمة الطعام';
+    EXP_SUMMARY=`${S.menu.length} قسم • ${S.menu.reduce((s,m)=>s+m.i.length,0)} وجبة`;
+    EXP_FILENAME='captain-menu-'+new Date().toISOString().slice(0,10)+'.json';
+    showExportSheet();
+  }catch(e){
+    console.error('exportMenu',e);
+    uiAlert('تعذر التصدير: '+(e.message||e));
+  }
+}
+
+function exportAll(){
+  try{
+    EXP_DATA = JSON.stringify({
+      v:SCHEMA_VERSION, type:'all', app:'captain',
+      exportedAt:new Date().toISOString(),
+      n:S.n, th:S.th, t:S.t, menu:S.menu
+    });
+    EXP_TITLE='📤 نسخة احتياطية كاملة';
+    EXP_SUMMARY=`${S.menu.length} قسم • ${S.n} طاولة • الإعدادات`;
+    EXP_FILENAME='captain-all-'+new Date().toISOString().slice(0,10)+'.json';
+    showExportSheet();
+  }catch(e){
+    console.error('exportAll',e);
+    uiAlert('تعذر التصدير: '+(e.message||e));
+  }
+}
+
+function showExportSheet(){
+  const kb = EXP_DATA.length / 1024;
+  const sizeTxt = kb < 1 ? EXP_DATA.length+' حرف' : kb.toFixed(1)+' كيلوبايت';
+
+  const previewLimit = 1500;
+  const preview = EXP_DATA.length > previewLimit
+    ? EXP_DATA.slice(0, previewLimit) + '\n\n[…]\n\n⚠️ هذه معاينة مختصرة فقط. النسخ/المشاركة/التنزيل تحتوي البيانات كاملة.'
+    : EXP_DATA;
+
+  openSheet(`<h3>${EXP_TITLE}</h3>
+    <p class="muted" style="margin:0 0 6px">${EXP_SUMMARY} • الحجم: ${sizeTxt}</p>
+    <div style="background:color-mix(in srgb,var(--ac) 15%,transparent);border:1px solid var(--ac);border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:13.5px;line-height:1.7">
+      <b>📌 كيف تنقلها؟</b><br>
+      ١. اضغط <b>نسخ</b> أو <b>مشاركة</b><br>
+      ٢. أرسلها لنفسك في واتساب/تيليجرام<br>
+      ٣. في الجهاز الآخر: الإعدادات → استيراد → الصق
+    </div>
+    <textarea id="expData" class="json-ta" rows="5" readonly>${h(preview)}</textarea>
+    <div class="io-grid">
+      <button type="button" class="pb" onclick="copyExp()">📋 نسخ النص</button>
+      <button type="button" class="sb" onclick="shareExp()">📤 مشاركة</button>
+    </div>
+    <button type="button" class="gp" style="width:100%;margin-top:8px" onclick="downloadExp()">💾 تنزيل كملف</button>
+    <button type="button" class="gp" style="width:100%;margin-top:8px" onclick="closeSheet()">إغلاق</button>`);
+}
+
+function copyExp(){
+  if(!EXP_DATA){uiAlert('لا توجد بيانات، أعد التصدير');return}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(EXP_DATA).then(()=>toast('تم نسخ النص ✓')).catch(()=>fallbackCopy(EXP_DATA));
+  }else fallbackCopy(EXP_DATA);
+}
+
+function shareExp(){
+  if(!EXP_DATA){uiAlert('لا توجد بيانات، أعد التصدير');return}
+  if(navigator.share){
+    navigator.share({title:'كابتن محمد',text:EXP_DATA}).catch(()=>{});
+  }else{
+    copyExp();
+  }
+}
+
+async function downloadExp(){
+  if(!EXP_DATA){uiAlert('لا توجد بيانات، أعد التصدير');return}
+
+  try{
+    if(navigator.canShare && navigator.share){
+      const file = new File(
+        [EXP_DATA],
+        EXP_FILENAME || 'captain-data.json',
+        {type:'application/json'}
+      );
+      if(navigator.canShare({files:[file]})){
+        await navigator.share({files:[file], title:'كابتن محمد'});
+        toast('تمت المشاركة ✓');
+        return;
+      }
+    }
+  }catch(err){
+    if(err && err.name === 'AbortError') return;
+    console.warn('share failed', err);
+  }
+
+  let triedDataURL = false;
+  try{
+    const a = document.createElement('a');
+    a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(EXP_DATA);
+    a.download = EXP_FILENAME || 'captain-data.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    triedDataURL = true;
+  }catch(e){
+    console.warn('dataURL failed', e);
+  }
+
+  setTimeout(()=>{
+    uiAlert(
+      (triedDataURL
+        ? 'أُرسل طلب التنزيل.\n\n📌 ابحث عن الملف في:\n• مجلد Downloads\n• تطبيق "الملفات" أو File Manager ← التنزيلات\n\n'
+        : '⚠️ هذا التطبيق لا يدعم تنزيل الملفات مباشرة.\n\n') +
+      '💡 الحل الأكيد:\nاستخدم زر "📋 نسخ النص" والصقه في:\n• تطبيق Notes أو Notepad\n• أو أرسله لنفسك في واتساب/تيليجرام\n\nثم احفظه كملف .txt — البيانات كاملة.'
+    );
+  }, 800);
+}
+
+
+    function importMenu(){showImportSheet('📥 استيراد قائمة الطعام','menu')}
+    function importAll(){showImportSheet('📥 استيراد نسخة كاملة','all')}
+
+/* ═══════════════════════════════════════════════════════════════
+   استيراد منيو أبو علي الجاهز
+   ═══════════════════════════════════════════════════════════════ */
+function importAbuAliMenu(){
+  const totalItems=ABU_ALI_MENU.reduce((s,c)=>s+c.i.length,0);
+  uiConfirm(
+    `استبدال قائمة الطعام الحالية بمنيو أبو علي؟\n\n`+
+    `${ABU_ALI_MENU.length} قسم • ${totalItems} وجبة\n\n`+
+    `⚠️ سيتم حذف القائمة الحالية بالكامل.`,
+    ()=>{
+      S.menu=JSON.parse(JSON.stringify(ABU_ALI_MENU));
+      save();
+      V.p='menu';V.ci=0;Q.ms='';
+      closeSheet();
+      toast('تم استيراد منيو أبو علي ✓');
+    },
+    'نعم، استورد المنيو'
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   نافذة الاستيراد
+   ═══════════════════════════════════════════════════════════════ */
+function showImportSheet(title,type){
+  openSheet(`<h3>${title}</h3>
+
+    <div style="background:linear-gradient(160deg,var(--pr),var(--p2));border:2px solid var(--ac);border-radius:14px;padding:14px;margin-bottom:14px">
+      <b style="color:var(--ac);font-size:16px;display:block;margin-bottom:6px">⭐ منيو جاهز — أبو علي</b>
+      <p style="margin:0 0 10px;font-size:13px;line-height:1.7;color:var(--pt);opacity:.9">${ABU_ALI_MENU.length} قسم • ${ABU_ALI_MENU.reduce((s,c)=>s+c.i.length,0)} وجبة — يُستورد بضغطة واحدة بدلاً من القائمة الحالية</p>
+      <button type="button" style="width:100%;padding:14px;background:var(--ac);color:var(--at);border-radius:12px;font-weight:800;font-size:15px" onclick="importAbuAliMenu()">⚡ استيراد منيو أبو علي</button>
+    </div>
+
+    <p class="muted" style="margin:0 0 10px;line-height:1.7;font-size:13px">
+      <b>📌 أو استورد نسخة من جهاز آخر:</b> انسخ النص والصقه بالتدريج حتى يكتمل.<br>
+      <b>مراقبة النص:</b> راقب <b>عدّاد الأحرف</b>. عندما يصبح <b>آخر حرف = <span style="color:var(--ok)">}</span></b> (أخضر) فالنص كامل.
+    </p>
+    <textarea id="impData" class="json-ta" rows="6" placeholder='{"v":6,"menu":[...]}' oninput="updateImportInfo()"></textarea>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:6px 2px;padding:8px 12px;background:var(--sf);border:1px solid var(--br);border-radius:10px;font-size:12.5px">
+      <span id="impInfo" style="color:var(--mu);font-family:monospace;direction:ltr">0 حرف</span>
+      <span>آخر حرف: <b id="impTail" style="color:var(--dg);font-family:monospace;font-size:14px">—</b></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px">
+      <button type="button" class="sb" style="padding:12px 4px;font-size:13px" onclick="pasteFromClipboard(false)">📋 لصق (استبدال)</button>
+      <button type="button" class="gp" style="padding:12px 4px;font-size:13px" onclick="pasteFromClipboard(true)">➕ لصق (إضافة)</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">
+      <button type="button" class="gp" style="padding:12px 4px;font-size:13px" onclick="importFile()">📁 من ملف</button>
+      <button type="button" class="gp" style="padding:12px 4px;font-size:13px" onclick="clearImport()">🗑️ مسح المربع</button>
+    </div>
+    <button type="button" class="pb" style="width:100%;margin-top:10px;margin-bottom:8px" onclick="doImport('${type}')">✅ استيراد</button>
+    <button type="button" class="gp" style="width:100%" onclick="closeSheet()">إلغاء</button>`);
+  setTimeout(()=>{updateImportInfo()}, 60);
+}
+
+function updateImportInfo(){
+  const ta = $('#impData');
+  const info = $('#impInfo');
+  const tail = $('#impTail');
+  if(!ta || !info || !tail) return;
+  const v = ta.value;
+  const kb = (v.length/1024).toFixed(1);
+  info.textContent = v.length.toLocaleString('en-US') + ' حرف (' + kb + ' KB)';
+  const trimmed = v.trim();
+  const lastChar = trimmed.slice(-1) || '—';
+  tail.textContent = lastChar;
+  tail.style.color = lastChar === '}' ? 'var(--ok)' : 'var(--dg)';
+}
+
+function clearImport(){
+  const ta = $('#impData');
+  if(ta){ ta.value = ''; updateImportInfo(); }
+}
+
+function cleanJSONString(raw){
+  if(!raw)return'';
+  return String(raw)
+    .replace(/^\uFEFF/,'')
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2060\uFEFF]/g,'')
+    .replace(/\u00A0/g,' ')
+    .trim();
+}
+
+function tryParseJSON(raw){
+  if(!raw)throw new Error('النص فارغ');
+  const s1=cleanJSONString(raw);
+  try{return JSON.parse(s1)}catch(e1){}
+  const s2=s1
+    .replace(/[\u201C\u201D\u201E\u201F]/g,'"')
+    .replace(/[\u2018\u2019\u201A\u201B]/g,"'");
+  try{return JSON.parse(s2)}catch(e2){
+    const m=(e2.message||'').match(/position\s+(\d+)/i);
+    if(m){
+      const pos=+m[1];
+      const start=Math.max(0,pos-25);
+      const end=Math.min(s2.length,pos+25);
+      const snip=s2.slice(start,end).replace(/\s+/g,' ');
+      throw new Error('JSON غير صالح عند الحرف '+pos+' تقريباً:\n…'+snip+'…');
+    }
+    throw new Error('JSON غير صالح — '+(e2.message||'خطأ غير معروف'));
+  }
+}
+
+ function doImport(type){
+  const el=$('#impData');if(!el)return;
+  const raw=el.value.trim();
+  if(!raw){uiAlert('الصق النص أولاً');return}
+
+  if(!raw.endsWith('}')){
+    const tail=(raw.trim().slice(-30)||'—');
+    uiAlert('⚠️ النص لا ينتهي بـ } — يبدو مقطوعاً.\n\nآخر 30 حرف:\n…'+tail+'\n\n💡 الحل:\n• انسخ الجزء المتبقي والصقه في نفس المربع (سيُضاف)\n• أو استخدم "➕ لصق (إضافة)" لجمع الأجزاء\n\nإن كنت واثقاً أن النص كامل، اضغط استيراد مرة أخرى.');
+    return;
+  }
+
+  let d;
+  try{
+    d=tryParseJSON(raw);
+  }catch(e){
+    uiAlert('تعذر قراءة النص:\n\n'+e.message+'\n\n💡 جرب زر "📁 من ملف" بدلاً من اللصق.');
+    return;
+  }
+
+  if(!d||typeof d!=='object'||Array.isArray(d)){uiAlert('البيانات غير صالحة (يجب أن تكون كائناً)');return}
+  if(!d.menu||!Array.isArray(d.menu)){uiAlert('لا يحتوي على قائمة طعام (حقل menu مفقود)');return}
+  if(d.menu.length===0){uiAlert('القائمة المستوردة فارغة');return}
+
+  const cleanMenu=d.menu.map(c=>({
+    c:String(c&&c.c||'بدون اسم'),
+    i:(c&&Array.isArray(c.i)?c.i:[]).map(it=>({
+      n:String(it&&it.n||''),
+      p:+((it&&it.p)||0),
+      d:String(it&&it.d||'')
+    })).filter(it=>it.n)
+  })).filter(c=>c.c);
+
+  const totalItems=cleanMenu.reduce((s,c)=>s+c.i.length,0);
+
+  if(type==='menu'){
+    uiConfirm(`استبدال قائمة الطعام الحالية بـ ${cleanMenu.length} قسم و ${totalItems} وجبة؟`,()=>{
+      S.menu=cleanMenu;
+      save();
+      V.p='menu';V.ci=0;Q.ms='';
+      closeSheet();
+      toast('تم استيراد القائمة ✓');
+    },'استبدال');
+  }else{
+    const tablesCount=d.n?+d.n:11;
+    uiConfirm(`استبدال كل شيء؟ (${cleanMenu.length} قسم، ${tablesCount} طاولة)`,()=>{
+      S.menu=cleanMenu;
+      S.n=Math.min(60,Math.max(1,tablesCount));
+      S.th=d.th==='light'?'light':'dark';
+      S.t=(d.t&&typeof d.t==='object')?d.t:{};
+      save();
+      applyTh();
+      V={p:'home',n:0,ci:0,cat:0,d:-1};
+      Q={ps:'',ms:''};
+      closeSheet();
+      toast('تم استيراد النسخة الكاملة ✓');
+    },'استبدال');
+  }
+}
+
+function importFile(){
+  if(window.showOpenFilePicker){
+    window.showOpenFilePicker({
+      types:[{description:'JSON أو نص',accept:{'application/json':['.json','.txt'],'text/plain':['.txt']}}],
+      multiple:false
+    }).then(async handles => {
+      const file = await handles[0].getFile();
+      const text = await file.text();
+      loadImportText(text);
+    }).catch(err => {
+      if(err && err.name === 'AbortError') return;
+      fallbackFileInput();
+    });
+    return;
+  }
+  fallbackFileInput();
+}
+
+function fallbackFileInput(){
+  const inp = document.createElement('input');
+  inp.type = 'file';
+  inp.accept = '.json,.txt,application/json,text/plain';
+  inp.style.position = 'fixed';
+  inp.style.left = '-9999px';
+  document.body.appendChild(inp);
+
+  let pickerOpened = false;
+  const onFocus = () => { pickerOpened = true; };
+  window.addEventListener('focus', onFocus, {once:true});
+
+  inp.onchange = e => {
+    const f = e.target.files[0];
+    inp.remove();
+    if(!f) return;
+    const r = new FileReader();
+    r.onload = () => loadImportText(r.result||'');
+    r.onerror = () => uiAlert('تعذر قراءة الملف');
+    r.readAsText(f, 'UTF-8');
+  };
+
+  inp.click();
+
+  setTimeout(()=>{
+    window.removeEventListener('focus', onFocus);
+    if(!pickerOpened && (!inp.files || !inp.files.length)){
+      inp.remove();
+      uiAlert(
+        '⚠️ هذا التطبيق لا يدعم فتح ملفات من الجهاز.\n\n' +
+        '💡 الحل الوحيد:\n' +
+        '• انسخ النص من الملف\n' +
+        '• اضغط مطوّلاً داخل مربع الاستيراد\n' +
+        '• اختر "لصق"\n' +
+        '• إذا نزل جزء فقط، كرر — سيُضاف للباقي\n\n' +
+        'ستعرف أن النص اكتمل عندما يصبح "آخر حرف" باللون الأخضر ( } ).'
+      );
+    }
+  }, 3000);
+}
+
+function loadImportText(text){
+  if(!text) return;
+  if(text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const el = $('#impData');
+  if(el){ el.value = text; }
+  updateImportInfo();
+  const kb = (text.length/1024).toFixed(1);
+  toast('تم تحميل ' + kb + ' كيلوبايت ✓ — اضغط استيراد');
+}
+
+async function pasteFromClipboard(appendMode){
+  try{
+    if(!navigator.clipboard || !navigator.clipboard.readText){
+      uiAlert('القراءة المباشرة من الحافظة غير مدعومة في هذا التطبيق.\n\nالحل:\n١. اضغط مطوّلاً داخل المربع\n٢. اختر "لصق" من القائمة\n٣. إذا نزل جزء فقط، كرر — سيُضاف للباقي');
+      return;
+    }
+    const text = await navigator.clipboard.readText();
+    if(!text || !text.trim()){ uiAlert('الحافظة فارغة. انسخ النص أولاً.'); return }
+    const ta = $('#impData');
+    if(!ta){ uiAlert('أعد فتح النافذة'); return }
+    if(appendMode){
+      ta.value += text;
+    } else {
+      ta.value = text;
+    }
+    updateImportInfo();
+    toast('تم لصق ' + text.length.toLocaleString('en-US') + ' حرف' + (appendMode ? ' (مضاف)' : ''));
+  }catch(e){
+    console.error('paste error', e);
+    uiAlert('تعذر القراءة التلقائية من الحافظة.\n\nالحل:\n١. اضغط مطوّلاً في المربع\n٢. اختر "لصق"\n٣. إذا نزل جزء فقط، كرر — سيُضاف للباقي');
+  }
+}
+
+
+    function settings(){
+      const th=(S.th||'dark')=='dark';
+      return `<header><h1>الإعدادات</h1></header>
+        <main>
+          <div class="set-item">
+            <div><b>عدد الطاولات</b><span class="muted">بين 1 و 60</span></div>
+            <div class="st"><button onclick="tcount(1)">+</button><b>${S.n}</b><button onclick="tcount(-1)">−</button></div>
+          </div>
+          <div class="set-item">
+            <div><b>الوضع الليلي</b><span class="muted">${th?'مفعّل':'معطّل'}</span></div>
+            <button class="w ${th?'on':''}" onclick="theme()">${th?'🌙 ليلي':'☀️ نهاري'}</button>
+          </div>
+
+          <div class="h3">📤 نقل البيانات بين الأجهزة</div>
+
+          <div class="set-item block">
+            <b>قائمة الطعام</b>
+            <span class="muted" style="display:block;margin-top:3px">تصدير/استيراد الأقسام والوجبات فقط</span>
+            <div class="io-grid">
+              <button class="pb" onclick="exportMenu()">📤 تصدير القائمة</button>
+              <button class="sb" onclick="importMenu()">📥 استيراد القائمة</button>
+            </div>
+          </div>
+
+          <div class="set-item block">
+            <b>نسخة احتياطية كاملة</b>
+            <span class="muted" style="display:block;margin-top:3px">القائمة + الطاولات + الإعدادات</span>
+            <div class="io-grid">
+              <button class="pb" onclick="exportAll()">📤 تصدير الكل</button>
+              <button class="sb" onclick="importAll()">📥 استيراد الكل</button>
+            </div>
+          </div>
+
+          <div class="h3">⚠️ منطقة الخطر</div>
+          <div class="set-item">
+            <div><b>تفريغ كل الطاولات</b><span class="muted">القائمة تبقى كما هي</span></div>
+            <button class="db" onclick="askClearTables()">تفريغ</button>
+          </div>
+          <div class="set-item">
+            <div><b>إعادة ضبط كامل</b><span class="muted">حذف كل شيء والعودة للقائمة الافتراضية</span></div>
+            <button class="db" onclick="resetAll()">إعادة</button>
+          </div>
+          <p class="em" style="padding:24px 0 10px;font-size:13px">كابتن محمد • إدارة الطاولات<br>البيانات محفوظة محلياً في جهازك</p>
+        </main>`;
+    }
+    function askClearTables(){uiConfirm('تفريغ كل الطاولات؟',()=>{S.t={};save();render();toast('تم تفريغ الطاولات')},'نعم، فرّغ')}
+    function resetAll(){uiConfirm('إعادة ضبط كل شيء؟ لا يمكن التراجع.',()=>{localStorage.removeItem(KEY);S=JSON.parse(JSON.stringify(DEF));save();render();toast('تم إعادة الضبط')},'نعم، أعد الضبط')}
+    function tcount(d){const n=S.n+d;if(n<1||n>60)return;if(d<0&&S.t[S.n]&&S.t[S.n].occ){uiAlert('الطاولة '+S.n+' محجوزة، أفرغها أولاً');return}delete S.t[S.n];S.n=n;save();render()}
+
+    function applyTh(){document.documentElement.dataset.theme=S.th||'dark'}
+    function theme(){S.th=(S.th||'dark')=='dark'?'light':'dark';save();applyTh();render()}
+
+    let DLG_OK=null,DLG_PROMPT=null;
+    function _dlg(html){$('#dlgc').innerHTML=html;$('#dlg').hidden=false}
+    function closeDlg(){$('#dlg').hidden=true;$('#dlgc').innerHTML='';DLG_OK=null;DLG_PROMPT=null}
+    function dlgYes(){const cb=DLG_OK;closeDlg();if(cb)try{cb()}catch(e){console.error(e)}}
+    function dlgPromptOk(){const cb=DLG_PROMPT,v=$('#dpi')?$('#dpi').value:'';closeDlg();if(cb)try{cb(v)}catch(e){console.error(e)}}
+    function uiConfirm(msg,cb,okTxt){DLG_OK=cb;DLG_PROMPT=null;
+      _dlg(`<h3 style="margin:0 0 10px">تأكيد</h3>
+        <p style="margin:0 0 16px;line-height:1.8;color:var(--mu)">${h(msg)}</p>
+        <div style="display:flex;gap:10px">
+          <button type="button" class="db" style="flex:1;padding:14px;border-radius:14px;font-weight:800" onclick="dlgYes()">${h(okTxt||'تأكيد')}</button>
+          <button type="button" class="gp" style="flex:1;padding:14px;border-radius:14px;font-weight:800" onclick="closeDlg()">إلغاء</button>
+        </div>`);
+    }
+    function uiAlert(msg,cb){DLG_OK=cb;DLG_PROMPT=null;
+      _dlg(`<h3 style="margin:0 0 10px">تنبيه</h3>
+        <p style="margin:0 0 16px;line-height:1.8;color:var(--mu)">${h(msg)}</p>
+        <button type="button" class="pb" style="width:100%;padding:14px;border-radius:14px;font-weight:800" onclick="dlgYes()">حسناً</button>`);
+    }
+    function uiPrompt(title,def,cb){DLG_PROMPT=cb;DLG_OK=null;
+      _dlg(`<h3 style="margin:0 0 10px">${h(title)}</h3>
+        <input id="dpi" value="${h(def||'')}" placeholder="اكتب هنا...">
+        <div style="display:flex;gap:10px">
+          <button type="button" class="pb" style="flex:1;padding:14px;border-radius:14px;font-weight:800" onclick="dlgPromptOk()">حفظ</button>
+          <button type="button" class="gp" style="flex:1;padding:14px;border-radius:14px;font-weight:800" onclick="closeDlg()">إلغاء</button>
+        </div>`);
+    }
+
+    let toastTimer=null,undoAction=null;
+    function toast(msg,action){
+      undoAction=action||null;
+      const el=$('#toast');
+      el.classList.remove('on');
+      void el.offsetWidth;
+      el.innerHTML=`<span>${h(msg)}</span>`
+        +(action?'<button type="button" onclick="doUndo()">تراجع</button>':'')
+        +'<button type="button" class="tclose" onclick="hideToast()" aria-label="إغلاق">✕</button>';
+      el.classList.add('on');
+      if(toastTimer)clearTimeout(toastTimer);
+      toastTimer=setTimeout(hideToast,3500);
+    }
+    function hideToast(){
+      if(toastTimer){clearTimeout(toastTimer);toastTimer=null}
+      const el=$('#toast');
+      el.classList.remove('on');
+      undoAction=null;
+    }
+    function doUndo(){const a=undoAction;hideToast();if(a)try{a()}catch(e){console.error(e)}}
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)hideToast()});
+
+    window.hwBack=()=>{
+      if(!$('#dlg').hidden){closeDlg();return true}
+      if(!$('#sh').hidden){closeSheet();return true}
+      if(V.p=='cat'){backToMenu();return true}
+      if(V.p!='home'){V.p='home';render();return true}
+      return false;
+    };
+
+    applyTh();
+    render();
+    setInterval(()=>{if(V.p=='home'&&$('#sh').hidden&&$('#dlg').hidden)render()},30000);
+</script></body></html>
