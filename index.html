@@ -59,8 +59,8 @@
         .ln{background:var(--sf);border:1px solid var(--br);border-inline-start:4px solid var(--ac);border-radius:14px;padding:10px;margin-bottom:10px;box-shadow:var(--sh)}
         .ln.dn{opacity:.6;border-inline-start-color:var(--ok)}
         .ln.dn .nm{text-decoration:line-through;color:var(--mu)}
-        
-        /* ═══ تعديل التنسيق هنا لحل مشكلة الكلمات تحت بعضها ═══ */
+
+        /* ═══ تنسيق شريط الطلب (تم حل مشكلة الكلمات تحت بعضها) ═══ */
         .r1{display:flex;align-items:center;gap:6px;width:100%}
         .q{display:flex;align-items:center;gap:2px;background:var(--bg);border-radius:14px;padding:2px;flex-shrink:0}
         .q button{width:32px;height:32px;font-size:18px;border-radius:10px}
@@ -72,7 +72,7 @@
         .ic{font-size:16px;padding:8px;border-radius:10px;min-width:34px;min-height:34px;display:grid;place-items:center;flex-shrink:0}
         .ic:active{background:var(--bg)}
         /* ═══════════════════════════════════════════════════════ */
-        
+
         .nt{margin-top:8px;background:color-mix(in srgb,var(--ac) 18%,transparent);border-radius:10px;padding:7px 10px;font-size:14px;line-height:1.5}
         .ds{margin-top:8px;color:var(--mu);font-size:14px;line-height:1.7;border-top:1px dashed var(--br);padding-top:8px}
         .ed{color:var(--ac);font-weight:800;font-size:14px;padding:4px 6px;border-radius:8px}
@@ -437,7 +437,20 @@ function getChipsForItem(itemName){
     {n:'قهوة باردة',p:2000,d:''},
     {n:'آيس لاتي',p:2500,d:''},
     {n:'قهوة مثلجة - مع كريمة الفانيلا',p:3000,d:''}
+    ]},
+    /* ═══════════════ [القسم الجديد المضاف] ═══════════════ */
+    {c:'المشروبات',i:[
+    {n:'مياه',p:500,d:''},
+    {n:'سبرايت',p:1000,d:''},
+    {n:'ليمون',p:1000,d:''},
+    {n:'ببسي',p:1000,d:''},
+    {n:'ببسي دايت',p:1000,d:''},
+    {n:'ديو',p:1000,d:''},
+    {n:'لبن قدح طازج',p:1500,d:''},
+    {n:'لبن طازج شيشة بلاستيك',p:1000,d:''},
+    {n:'فانتا برتقال',p:1000,d:''}
     ]}
+    /* ═══════════════════════════════════════════════════════ */
     ];
 
     let S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
