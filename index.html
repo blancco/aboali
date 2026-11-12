@@ -59,16 +59,20 @@
         .ln{background:var(--sf);border:1px solid var(--br);border-inline-start:4px solid var(--ac);border-radius:14px;padding:10px;margin-bottom:10px;box-shadow:var(--sh)}
         .ln.dn{opacity:.6;border-inline-start-color:var(--ok)}
         .ln.dn .nm{text-decoration:line-through;color:var(--mu)}
-        .r1{display:flex;align-items:center;gap:6px}
-        .q{display:flex;align-items:center;gap:2px;background:var(--bg);border-radius:14px;padding:2px}
+        
+        /* ═══ تعديل التنسيق هنا لحل مشكلة الكلمات تحت بعضها ═══ */
+        .r1{display:flex;align-items:center;gap:6px;width:100%}
+        .q{display:flex;align-items:center;gap:2px;background:var(--bg);border-radius:14px;padding:2px;flex-shrink:0}
         .q button{width:32px;height:32px;font-size:18px;border-radius:10px}
         .q b{min-width:24px;font-size:15px}
-        .ck{width:32px;height:32px;border-radius:50%;border:2px solid var(--br);flex:none;font-weight:800;color:#fff;font-size:16px;display:grid;place-items:center}
+        .ck{width:32px;height:32px;border-radius:50%;border:2px solid var(--br);flex:none;font-weight:800;color:#fff;font-size:16px;display:grid;place-items:center;flex-shrink:0}
         .ck.on{background:var(--ok);border-color:var(--ok)}
-        .nm{flex:1;font-weight:700;padding:0 6px;line-height:1.35;font-size:15px}
+        .nm{flex:1;min-width:0;font-weight:700;padding:0 6px;line-height:1.35;font-size:15px;word-break:break-word}
         .nm small{display:block;color:var(--mu);font-weight:500;font-size:12px;margin-top:2px}
-        .ic{font-size:16px;padding:8px;border-radius:10px;min-width:34px;min-height:34px;display:grid;place-items:center}
+        .ic{font-size:16px;padding:8px;border-radius:10px;min-width:34px;min-height:34px;display:grid;place-items:center;flex-shrink:0}
         .ic:active{background:var(--bg)}
+        /* ═══════════════════════════════════════════════════════ */
+        
         .nt{margin-top:8px;background:color-mix(in srgb,var(--ac) 18%,transparent);border-radius:10px;padding:7px 10px;font-size:14px;line-height:1.5}
         .ds{margin-top:8px;color:var(--mu);font-size:14px;line-height:1.7;border-top:1px dashed var(--br);padding-top:8px}
         .ed{color:var(--ac);font-weight:800;font-size:14px;padding:4px 6px;border-radius:8px}
@@ -232,10 +236,6 @@ function _displayName(s){
 }
 
 
-
-
-
-
 function getChipsForItem(itemName){
   const d = desc(itemName);
   if(!d || !d.trim()) return [];
@@ -288,11 +288,6 @@ function getChipsForItem(itemName){
 
   return chips;
 }
-
-
-
-
-
 
 
     const WATER_PRICE=250;
@@ -528,9 +523,8 @@ function getChipsForItem(itemName){
         return `<div class="ln${x.s?' dn':''}">
           <div class="r1">
             <button class="ck ${x.s?'on':''}" onclick="srv(${i})">${x.s?'✓':''}</button>
-            <div class="q"><button onclick="qty(${i},1)">+</button><b>${q}</b><button onclick="qty(${i},-1)">−</button></div>
             <div class="nm" onclick="V.d=V.d==${i}?-1:${i};render()">${h(x.n)}<small>${nf(price)} × ${q} = ${nf(price*q)} د.ع</small></div>
-            <button class="ic" onclick="V.d=V.d==${i}?-1:${i};render()">ℹ️</button>
+            <div class="q"><button onclick="qty(${i},1)">+</button><b>${q}</b><button onclick="qty(${i},-1)">−</button></div>
             <button class="ic" onclick="noteS(${i})">📝</button>
             <button class="ic" onclick="del(${i})">✕</button>
           </div>
